@@ -1,31 +1,36 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
-static int GetPasswordLenght()
+public class Program
 {
-    Console.WriteLine("Введите длину пароля: ");
-    return Convert.ToInt32(Console.ReadLine());
-}
+    static int GetPasswordLength()
+    {
+        Console.WriteLine("Введите длину пароля: ");
+        return Convert.ToInt32(Console.ReadLine());
+    }
 
-static string GeneratePassword(int lenght)
-{
-    const string chars =
-        "abcdefghijklmnopqrstuvwxyz" +
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-        "0123456789!@#$%^&*";
+    static string GeneratePassword(int length)
+    {
+        const string chars =
+            "abcdefghijklmnopqrstuvwxyz" +
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+            "0123456789!@#$%&*";
 
-    var random = new Random();
-    var result = new StringBuilder();
+        var random = new Random();
+        var result = new StringBuilder();
 
-        for (int i = 0; i < lenght; i++)    
-        result.Append(chars[random.Next(chars.Length)]);
+        for (var i = 0; i < length; i++) 
+            result.Append(chars[random.Next(chars.Length)]);
         return result.ToString();
-    
-}
+    }
 
-static void Main()
-{
-    int length = GetPasswordLenght();
-    string password = GeneratePassword(length);
+    static void Main()
+    {
+        var length = GetPasswordLength();
+        var password = GeneratePassword(length);
     
-    Console.WriteLine($"Ваш случайный пароль: {password}");
+        Console.WriteLine($"Ваш случайный пароль: {password}");
+        Console.WriteLine("Нажмите Enter для выхода...");
+        Console.ReadLine();
+    }
 }
