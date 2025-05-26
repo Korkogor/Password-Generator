@@ -30,7 +30,7 @@ public class Program
         var password = GeneratePassword(length);
     
         Console.WriteLine($"Ваш случайный пароль: {password}");
-        Console.WriteLine("Нажмите Enter для выхода...");
+        Console.WriteLine("Скопируйте пароль и нажмите Enter для выхода...");
         Console.ReadLine();
     }
 }
